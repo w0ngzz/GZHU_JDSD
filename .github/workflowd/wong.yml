@@ -1,0 +1,23 @@
+name: jdsd_checkin
+on:
+  workflow_dispatch:
+  schedule:
+  schedule:
+  # 定时任务，在每天的24点 18点推送签到信息到邮箱
+    - cron:  5 2 * * * 
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9.1
+    - name: Checkin
+      run: |
+        python3 ./fuck_jdsd.py
+    env: 
+      #设置secrets的环境变量
+        STUID: ${{ secrets.STUID }}
+        
