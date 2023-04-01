@@ -2,7 +2,6 @@ name: jdsd_checkin
 on:
   workflow_dispatch:
   schedule:
-  schedule:
   # 定时任务，在每天的24点 18点推送签到信息到邮箱
     - cron:  5 2 * * * 
 jobs:
